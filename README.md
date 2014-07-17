@@ -13,4 +13,4 @@ This Ruby on Rails app will be used to create the JSON files for the NYU Bus Tra
     * `<ctrl-D>`
     * rake db:create
 
-Start up the server with {{rails server}}. Or, the app is also up on Heroku at http://nyubustimes.herokuapp.com/.
+Start up the server with `rails server`. Or, the app is also up on Heroku at http://nyubustimes.herokuapp.com/.
