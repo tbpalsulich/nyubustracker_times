@@ -1,16 +1,21 @@
 <h1>List of all stops</h1>
- 
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 <table>
   <tr>
     <th>Stop ID</th>
     <th>Times</th>
   </tr>
- 
+
   <% @stops.each do |stop| %>
-    <tr>
-      <td><%= stop.stop_id %></td>
-      <td><%= stop.times %></td>
-    </tr>
+  <tr>
+    <td><%= stop.stop_id %></td>
+    <td><%= stop.times %></td>
+  </tr>
   <% end %>
 </table>
 <%= link_to 'New Stop', new_stop_path %>
