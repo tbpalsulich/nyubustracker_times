@@ -1,0 +1,16 @@
+<h1>List of all stops</h1>
+ 
+<table>
+  <tr>
+    <th>Stop ID</th>
+    <th>Times</th>
+  </tr>
+ 
+  <% @stops.each do |stop| %>
+    <tr>
+      <td><%= stop.stop_id %></td>
+      <td><%= stop.times %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'New Stop', new_stop_path %>
