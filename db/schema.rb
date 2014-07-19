@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140719183145) do
   enable_extension "plpgsql"
 
   create_table "stops", force: true do |t|
-    t.string   "stop_id"
+    t.integer  "stop_id"
     t.text     "times"
     t.datetime "created_at"
     t.datetime "updated_at"
