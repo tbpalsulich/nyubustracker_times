@@ -9,13 +9,18 @@
   <tr>
     <th>Stop ID</th>
     <th>Times</th>
+    <th colspan="3"></th>
   </tr>
-
-  <% @stops.each do |stop| %>
+ 
+<% @stops.each do |stop| %>
   <tr>
     <td><%= stop.stop_id %></td>
     <td><%= stop.times %></td>
+    <td><%= link_to 'Show', stop_path(stop.stop_id) %></td>
+    <td><%= link_to 'Edit', edit_stop_path(stop.stop_id) %></td>
+    <td><%= link_to 'Destroy', stop_path(stop.stop_id),
+      method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-  <% end %>
+<% end %>
 </table>
 <%= link_to 'New Stop', new_stop_path %>

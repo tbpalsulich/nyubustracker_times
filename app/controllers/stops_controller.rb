@@ -8,11 +8,18 @@ class StopsController < ApplicationController
         @stop = Stop.new(stop_params)
 
         @stop.save
-        redirect_to @stop
+        redirect_to stop_path(@stop.stop_id)
     end
 
     def show
         @stop = Stop.find(params[:id])
+    end
+
+    def destroy
+        @stop = Stop.find(params[:id])
+        @stop.destroy
+
+        redirect_to stops_path
     end
 
     private
