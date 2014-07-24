@@ -42,4 +42,6 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 
+gem 'unirest'
+
 ruby "2.1.2"
