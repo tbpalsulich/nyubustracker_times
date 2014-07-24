@@ -1,0 +1,3 @@
+class BusTimesController < ApplicationController
+    
+end

@@ -1,3 +1,7 @@
+<% if flash[:duplicate_id] %>
+  <p class="alert alert-danger">Stop with that ID already exists!</p>
+<% end %>
+<% logger.info { "flash: " + flash.inspect } %>
 <p>
   <strong>Stop ID:</strong>
   <%= @stop.stop_id %>
@@ -5,8 +9,13 @@
  
 <p>
   <strong>Times:</strong>
-  <%= @stop.times %>
+  <% if !@stop.bus_times.blank? %>
+    <% for bus_time in @stop.bus_times %>
+      <p>Time: <% bus_time.departure_time %></p>
+    <% end %>
+  <% else %>
+    
+  <% end %>
 </p>
 
 <%= link_to 'Back', stops_path %>
-<%= link_to 'Edit', edit_stop_path(@stop.stop_id) %>

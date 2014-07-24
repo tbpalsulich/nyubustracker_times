@@ -1,12 +1,7 @@
-<%= form_for :stop, url: stops_path do |f| %>
+<%= form_for @stop.nil? ? :stop : @stop do |f| %>
   <p>
     <%= f.label :stop_id %><br>
     <%= f.number_field :stop_id %>
-  </p>
- 
-  <p>
-    <%= f.label :times %><br>
-    <%= f.text_area :times %>
   </p>
  
   <p>
