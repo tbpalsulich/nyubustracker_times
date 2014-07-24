@@ -18,9 +18,9 @@
     <td><%= stop.stop_name %></td>
     <td><%= stop.stop_id %></td>
     <td><%= stop.bus_times.size %></td>
-    <td><%= link_to 'Show', stop_path(stop) %></td>
-    <td><%= link_to 'Edit', edit_stop_path(stop) %></td>
-    <td><%= link_to 'Destroy', stop_path(stop),
+    <td><%= link_to 'Show', stop_path(stop.stop_id) %></td>
+    <td><%= link_to 'Edit', edit_stop_path(stop.stop_id) %></td>
+    <td><%= link_to 'Destroy', stop_path(stop.stop_id),
       method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

@@ -10,7 +10,7 @@ class StopsController < ApplicationController
         @stop = Stop.new(stop_params)
 
         @stop.save
-        redirect_to stop_path(@stop)
+        redirect_to stop_path(@stop.stop_id)
     end
 
     def update 
@@ -18,7 +18,7 @@ class StopsController < ApplicationController
         logger.info(params.inspect)
          
         if @stop.update(stop_params)
-            redirect_to stop_path(@stop)
+            redirect_to stop_path(@stop.stop_id)
         else
             render 'edit'
         end
