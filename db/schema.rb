@@ -11,25 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724204359) do
+ActiveRecord::Schema.define(version: 20140725161820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "bus_times", force: true do |t|
-    t.time     "departure_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "timeofweek"
-    t.integer  "stop_id"
-  end
 
   create_table "stops", force: true do |t|
     t.integer  "stop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "stop_name"
-    t.text     "times_json"
+    t.text     "times"
   end
 
   create_table "users", force: true do |t|

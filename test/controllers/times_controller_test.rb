@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BusTimeTest < ActiveSupport::TestCase
+class TimesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
