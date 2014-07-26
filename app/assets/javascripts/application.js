@@ -11,10 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
 //= require jsoneditor
 //= require_tree ./asset
-//= require turbolinks
