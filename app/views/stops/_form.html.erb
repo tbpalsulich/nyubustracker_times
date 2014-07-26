@@ -1,4 +1,4 @@
-<%= form_for @stop.nil? ? :stop : @stop do |f| %>
+<%= form_for @stop.nil? ? :stop : @stop, :html => {:onsubmit => 'submit;'} do |f| %>
   <p>
     <%= f.label :stop_id %><br>
     <%= f.number_field :stop_id %>
@@ -9,7 +9,7 @@
     <%= f.text_field :stop_name %>
   </p>
 
-  <div id="jsoneditor" style="width: 400px; height: 400px;"></div>
+  <div id="jsoneditor" style="width: 500px; height: 500px;"></div>
  
   <p>
     <%= f.submit %>
