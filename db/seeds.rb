@@ -13,6 +13,6 @@ stops.each do |stop|
     stop_name = stop["name"]
     times_response = Unirest.get "https://s3.amazonaws.com/nyubustimes/1.0/#{stop_id}.json"
     times_response = times_response.raw_body
-    times_response = "{}" if times_response.include? "AccessDenied"         
+    times_response = "{\"stop\":\"#{stop_name}\", \"stop_id\":\"#{stop_id}\", \"routes\":{}}" if times_response.include? "AccessDenied"         
     Stop.create(:stop_id => stop_id, :stop_name => stop_name, :times => JSON(times_response))
 end
