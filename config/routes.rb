@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :stops do
-    resource :times
-  end
+  resources :stops, :defaults => {:format => :html}
 
   root 'stops#index'
   post 'stops/new' => 'stops#create'

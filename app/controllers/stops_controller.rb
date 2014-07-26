@@ -32,6 +32,10 @@ class StopsController < ApplicationController
     def show
         @stop = Stop.find(params[:id])
         gon.stop_times = @stop.times
+        respond_to do |format|
+            format.html
+            format.json { render :json => @stop.times }
+        end
     end
 
     def destroy
