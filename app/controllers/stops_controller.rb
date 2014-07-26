@@ -26,6 +26,7 @@ class StopsController < ApplicationController
 
     def edit
         @stop = Stop.find(params[:id])
+        gon.stop_times = @stop.times
     end
 
     def show
