@@ -44,4 +44,8 @@ gem 'devise'
 
 gem 'unirest'
 
+gem 'jquery-turbolinks'
+
+gem 'gon'
+
 ruby "2.1.2"

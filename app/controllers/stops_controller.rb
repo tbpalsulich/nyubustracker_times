@@ -30,6 +30,7 @@ class StopsController < ApplicationController
 
     def show
         @stop = Stop.find(params[:id])
+        gon.stop_times = @stop.times
     end
 
     def destroy
