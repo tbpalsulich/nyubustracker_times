@@ -1,6 +1,6 @@
 class StopsController < ApplicationController
     def index
-        @stops = Stop.all
+        @stops = Stop.order("stop_name ASC").all
     end
 
     def new
