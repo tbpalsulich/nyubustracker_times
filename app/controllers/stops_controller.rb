@@ -1,6 +1,11 @@
 class StopsController < ApplicationController
     def index
         @stops = Stop.order("stop_name ASC").all
+        gon.stops = @stops
+        respond_to do |format|
+            format.html
+            format.js {render "display_json"}
+        end
     end
 
     def new
