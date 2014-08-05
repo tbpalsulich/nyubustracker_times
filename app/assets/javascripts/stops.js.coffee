@@ -1,8 +1,8 @@
 display_json = (editor, id) ->
-    if document.getElementById "jsoneditor"
-        json = gon.stops[id]
-        editor.set json
-        json = editor.get
+    json = gon.stops[id]["times"]
+    editor.set json
+    $("#stop_name").text json["stop"]
+    $("#stop_id").text json["stop_id"]
 
 $ () ->
     container = document.getElementById "jsoneditor"
