@@ -18,8 +18,10 @@
   <%= link_to 'New Stop', new_stop_path %>
 </div>
 <div class="col-md-5">
-  <p><strong>Stop Name: </strong><span id="stop_name"></span></p>
-  <p><strong>Stop ID: </strong><span id="stop_id"></span></p>
-  <div id="jsoneditor" style="width: 500px; height: 500px;"></div>
+  <div id="times" data-spy="affix" data-offset-top="40">
+    <div><strong>Stop Name: </strong><span id="stop_name"></span></div>
+    <div><strong>Stop ID: </strong><span id="stop_id"></span></div>
+    <div id="jsoneditor" style="width: 500px; height: 500px;"></div>
+  </div>
 </div>
 <div class="col-md-1"></div>
