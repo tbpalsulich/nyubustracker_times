@@ -1,27 +1,32 @@
 <center><h1>NYU Bus Stops</h1></center>
 <hr/>
 <div class="col-md-1"></div>
-<div class="col-md-5">
+<div class="col-md-5" id="stop_list">
   <table class="table table-striped table-bordered table-condensed">
     <tr>
       <th>Stop Name</th>
       <th>Stop ID</th>
     </tr>
- 
+
     <% @stops.each_with_index do |stop, i| %>
-      <tr>
-        <td><%= link_to stop.stop_name, stop_path(stop.stop_id), remote: true, :class => "stop_link", :id => i %></td>
-        <td><%= stop.stop_id %></td>
-      </tr>
+    <tr>
+      <td><%= link_to stop.stop_name, stop_path(stop.stop_id), remote: true, :class => "stop_link", :id => i %></td>
+      <td><%= stop.stop_id %></td>
+    </tr>
     <% end %>
   </table>
   <%= link_to 'New Stop', new_stop_path %>
 </div>
-<div class="col-md-5">
-  <div id="times" data-spy="affix" data-offset-top="40">
-    <div><strong>Stop Name: </strong><span id="stop_name"></span></div>
-    <div><strong>Stop ID: </strong><span id="stop_id"></span></div>
-    <div id="jsoneditor" style="width: 500px; height: 500px;"></div>
-  </div>
+<div class="col-md-5" id="details">
+  <ul class="nav nav-list">
+    <li>
+      <label class="nav-header">Stop Name: </label><span id="stop_name"></span>
+    </li>
+    <li>
+      <label class="nav-header">Stop ID: </label><span id="stop_id"></span>
+    </li>
+    <li id="times">
+      <label class="tree-toggler nav-header">Times:</label>
+    </li>
+  </ul>
 </div>
-<div class="col-md-1"></div>
