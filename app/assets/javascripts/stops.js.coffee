@@ -32,7 +32,7 @@ add_all_times = (json) ->
             '
     return result
 
-add_times = (times, id) ->
+add_times = (times) ->
     result = ""
     if typeof times != "undefined"
         $.each times, (key, time) ->
