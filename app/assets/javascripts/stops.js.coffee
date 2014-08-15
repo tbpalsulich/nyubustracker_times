@@ -21,19 +21,19 @@ display_json = (id) ->
 
 add_all_times = (json) ->
     result = ''
-    $.each json["routes"], (key, value) ->
+    $.each json["routes"], (routeId, routes_json) ->
         result += '
             <li>
-                <label class="tree-toggler nav-header glyphicon-minus">' + value["route"] + ': ' + key + '</label>
+                <label class="tree-toggler nav-header glyphicon-minus">' + routes_json["route"] + ': ' + routeId + '</label>
                 <ul class="nav nav-list tree">
-                    <li id="' + key + '_weekday"><label class="tree-toggler nav-header glyphicon-minus">Weekday</label>
-                        <ul class="nav nav-list tree">' + add_times(value["Weekday"]) + '</ul></li>
+                    <li><label class="tree-toggler nav-header glyphicon-minus">Weekday</label>
+                        <ul class="nav nav-list tree">' + add_times(routes_json["Weekday"]) + '</ul></li>
 
-                    <li id="' + key + '_friday"><label class="tree-toggler nav-header glyphicon-minus">Friday</label>
-                        <ul class="nav nav-list tree">' + add_times(value["Friday"]) + '</ul></li>
+                    <li><label class="tree-toggler nav-header glyphicon-minus">Friday</label>
+                        <ul class="nav nav-list tree">' + add_times(routes_json["Friday"]) + '</ul></li>
 
-                    <li id="' + key + '_weekend"><label class="tree-toggler nav-header glyphicon-minus">Weekend</label>
-                        <ul class="nav nav-list tree">' + add_times(value["Weekend"]) + '</ul></li>
+                    <li ><label class="tree-toggler nav-header glyphicon-minus">Weekend</label>
+                        <ul class="nav nav-list tree">' + add_times(routes_json["Weekend"]) + '</ul></li>
                 </ul>
             </li>
             '
