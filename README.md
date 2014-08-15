@@ -21,9 +21,10 @@ Start up the server with `rails server`. The app is also up on Heroku at
 Everything happens on a single page (see `app/views/stops/index.html.erb`). All manipulations are done through
 Javascript JQuery (see `app/assets/javascripts/stops.js.coffee`). Users select a stop from the list in the
 left column and that stop's detail is opened in the right column. This is done through remote Ajax calls
-that act on the same page. 
+that act on the same page. The list of stops is provided by the Stops controller (`app/controllers/stops_controller.rb`).
+The times data is passed from the server to the client through the `gon` library.
 
-In the future, an edit button should enable the times, routes, IDs, etc. to be edited. This site will also be used to handle
+In the future, a button should allow the times, routes, IDs, etc. to be edited. This site will also be used to handle
 the requests from the NYU Bus Tracker mobile apps. So, once the user is happy with the schedule, they should be able to
 'publish' them, so that the mobile apps will receive the updated times.
 
