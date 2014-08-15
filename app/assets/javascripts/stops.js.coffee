@@ -13,7 +13,7 @@ display_json = (id) ->
     $("#times").empty()
     $("#times").append '
         <label class="tree-toggler nav-header glyphicon-minus">Times:</label>
-        <ul class="nav nav-list tree">' + 
+        <ul class="nav nav-list tree">' +
             add_all_times(json) +
         '</ul>'
     set_toggle_tree_on_click()
@@ -21,29 +21,31 @@ display_json = (id) ->
 
 add_all_times = (json) ->
     result = ''
-    $.each json["routes"], (routeId, routes_json) ->
+    $.each json["routes"], (routeId, routeJson) ->
         result += '
             <li>
-                <label class="tree-toggler nav-header glyphicon-minus">' + routes_json["route"] + ': ' + routeId + '</label>
-                <ul class="nav nav-list tree">
-                    <li><label class="tree-toggler nav-header glyphicon-minus">Weekday</label>
-                        <ul class="nav nav-list tree">' + add_times(routes_json["Weekday"]) + '</ul></li>
-
-                    <li><label class="tree-toggler nav-header glyphicon-minus">Friday</label>
-                        <ul class="nav nav-list tree">' + add_times(routes_json["Friday"]) + '</ul></li>
-
-                    <li ><label class="tree-toggler nav-header glyphicon-minus">Weekend</label>
-                        <ul class="nav nav-list tree">' + add_times(routes_json["Weekend"]) + '</ul></li>
-                </ul>
+                <label class="tree-toggler nav-header glyphicon-minus">' + routeJson["route"] + ': ' + routeId + '</label>
+                <ul class="nav nav-list tree">' +
+                    add_times_of_route(routeJson, "Weekday") +
+                    add_times_of_route(routeJson, "Friday") +
+                    add_times_of_route(routeJson, "Weekend") +
+                '</ul>
             </li>
             '
     return result
 
-add_times = (times) ->
-    result = ""
+add_times_of_route = (routeJson, timeOfWeek) ->
+    result = '
+        <li>
+            <label class="tree-toggler nav-header glyphicon-minus">Weekend</label>
+            <ul class="nav nav-list tree">'
+    times = routeJson[timeOfWeek]
     if typeof times != "undefined"
         $.each times, (key, time) ->
             result += "<li>" + time + "</li>"
+    result += '
+            </ul>
+        </li>'
     return result
 
 $ () ->
