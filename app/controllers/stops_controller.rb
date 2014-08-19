@@ -4,7 +4,7 @@ class StopsController < ApplicationController
         gon.stops = @stops
         respond_to do |format|
             format.html
-            format.js {render "display_json"}
+            format.js
         end
     end
 
