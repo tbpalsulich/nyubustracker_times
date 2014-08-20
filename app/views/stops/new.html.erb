@@ -1,2 +1,13 @@
 <h1>New Stop</h1>
-<%= render 'form' %>
+<%= form_for @stop.nil? ? :stop : @stop, :html => {:onsubmit => 'submit;'} do |f| %>
+    <%= f.label :stop_ID %><br />
+    <%= f.number_field :stop_id %><br />
+
+    <%= f.label :name %><br />
+    <%= f.text_field :stop_name %><br />
+
+    <%= f.label :times_json %><br />
+    <%= f.text_area :times_json, :cols => "60", :rows => "15" %><br />
+
+    <%= f.submit %>
+<% end %>
