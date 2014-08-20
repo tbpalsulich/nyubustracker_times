@@ -10,7 +10,7 @@
 
     <% @stops.each_with_index do |stop, i| %>
     <tr>
-      <td><%= link_to stop.stop_name, stop_path(stop.stop_id), remote: true, :class => "stop_link", :id => i %></td>
+      <td><%= link_to stop.stop_name, stops_path, remote: true, :class => "stop_link", :id => i %><i class="state-full glyphicon glyphicon-remove"></i></td>
       <td><%= stop.stop_id %></td>
     </tr>
     <% end %>
