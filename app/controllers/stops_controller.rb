@@ -13,34 +13,8 @@ class StopsController < ApplicationController
 
     def create
         @stop = Stop.new(stop_params)
-
         @stop.save
-        redirect_to stop_path(@stop.stop_id)
-    end
-
-    def update 
-        @stop = Stop.find(params[:id])
-        logger.info(params.inspect)
-         
-        if @stop.update(stop_params)
-            redirect_to stop_path(@stop.stop_id)
-        else
-            render 'edit'
-        end
-    end
-
-    def edit
-        @stop = Stop.find(params[:id])
-        gon.stop_times = @stop.times
-    end
-
-    def show
-        @stop = Stop.find(params[:id])
-        gon.stop_times = @stop.times
-        respond_to do |format|
-            format.html
-            format.json { render :json => @stop.times }
-        end
+        redirect_to stops_path
     end
 
     def destroy
