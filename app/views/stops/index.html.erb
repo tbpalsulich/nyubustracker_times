@@ -10,7 +10,14 @@
 
     <% @stops.each_with_index do |stop, i| %>
     <tr>
-      <td><%= link_to stop.stop_name, stops_path, remote: true, :class => "stop_link", :id => i %><i class="state-full glyphicon glyphicon-remove"></i></td>
+      <td>
+        <%= link_to stop.stop_name, stops_path, remote: true, :class => "stop_link", :id => i %>
+        <%= link_to stop_path(stop.stop_id), 
+              data: { :confirm => "Are you sure you want to delete the #{stop.stop_name} stop?" }, 
+              :method => :delete, :class => :delete_button do %>
+          <i class="state-full glyphicon glyphicon-remove"></i>
+        <% end %>
+      </td>
       <td><%= stop.stop_id %></td>
     </tr>
     <% end %>
